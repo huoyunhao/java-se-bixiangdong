@@ -1,0 +1,250 @@
+
+abstract class 动物
+{
+	abstract void eat();
+}
+
+class Dog extends 动物
+{
+	public void eat()
+	{
+		//骨头;
+	}
+}
+
+class 猫 extends 动物
+{
+	public void eat()
+	{
+		//吃鱼；
+	}
+}
+
+class 猪 extends 动物
+{
+	public void eat()
+	{
+		//饲料；
+	}
+}
+
+class Demo
+{
+	public void method(动物 x)//new Dog(); new 猫();
+	{
+		x.eat();
+	}
+	/*
+	public void  method(猫 x)
+	{
+		x.eat();
+	}
+	public void  method(Dog x)
+	{
+		x.eat();
+	}
+	public void  method(猪 x)
+	{
+		x.eat();
+	}
+	*/
+}
+
+class Main
+{
+	public static void main(String[] args)
+	{
+		Demo d = new Demo();
+		d.method(new Dog());
+		d.method(new 猫());
+	}
+}
+
+
+
+动物 x = new 猫（）；
+//猫 x = new 猫（）；
+
+一。表现：
+父类或者接口的引用指向了或者接收了自己的子类对象。
+
+二。前提：
+1，类与类之间要有关系。继承，实现。
+2，通常都会有覆盖。
+
+三。好处：
+预先定义的程序可以运行后期程序的内容。
+增强了程序的扩展性。
+
+四。弊端：
+虽然可以预先使用，但是只能访问父类中已有的功能，运行的是后期子类的功能内容。
+不能预先使用子类中定义的特有功能。
+
+五。多态的注意事项：
+在代码中。
+对于成员函数：Fu f = new Zi(); f.method();
+编译时期：看左边。
+运行时期：看右边。
+因为成员函数有一个覆盖操作。
+	毕姥爷和毕老师的故事。
+
+	
+对于非私有的实例变量，
+静态变量，静态方法。
+
+编译和运行都看左边。
+
+老师要求记住结论。有空闲时间，就想想为什么？
+
+六。转型。
+子类对象被父类引用：子类对象在向上转型。
+将指向子类对象的父类应用转换成子类类型引用：向下转型。
+
+毕姥爷和毕老师的故事。
+class 毕姥爷
+{}
+
+class 毕老师 extends 毕姥爷
+{}
+
+毕姥爷 ly = new 毕老师();//毕老师向上转型为了毕姥爷。向上转型
+
+毕老师 ls = (毕老师)ly; //将代表毕老师对象的父类引用ly强制转换成了毕老师类型。向下转型。
+
+
+
+七。应用
+电脑使用。主板运行。
+
+class MainBoard
+{
+	public void run()
+	{
+		//主板运行;
+	}
+	public void usePCI(PCI p)//PCI p = new NetCard();
+	{
+		if(p!=null)
+		{
+			p.open();
+			p.close();
+		}
+	}
+}
+
+
+//为了提高主板功能的扩展性。
+//定义了规则。让后期的出现的功能板块，只要覆盖该规则，就可以被这个主板使用。
+interface PCI
+{
+	void open();
+	void close();
+}
+
+
+
+
+class MainDemo
+{
+	public static void main(String[] args)
+	{
+		MainBoard mb = new MainBoard();
+		mb.run();
+		mb.usePCI(null);
+		mb.usePCI(new NetCard());
+
+
+
+	}
+}
+
+
+class NetCard implements PCI
+{
+	public void open(){}
+	public void close(){}
+}
+
+
+Object:是java中所有对象的直接或者间接的父类。
+	它里面的方法都所有对象都具备的。
+	常见方法：
+	boolean equals(Object obj):用于比较两个对象是否相同。
+	String toString(): 获取对象的字符串表现形式 类名@哈希值  
+		getClass().getName()+"@"+Integer.toHexString(hashCode());
+	Class getClass():获取正在运行的对象所属的字节码文件的对象。也就是说如果Demo d = new Demo();
+				d.getClass():获取的就是d执行的对象所属的字节码文件Demo.class对象。
+	
+	通常在自定义对象时，因为对象中都有自己特有的描述，
+	所以都会建立对象自身的特有比较方法，或者字符串表现形式。
+	也就是说，会覆盖Object中的方法。
+
+
+/*
+Demo d1 = new Demo();
+Demo d2 = new Demo();
+d1.getClass() ==  d2.getClass();
+*/
+
+
+class Demo //extends Object
+{
+	public String toString()
+	{
+		this.getClass().getName()+"#"+Integer.toHexString(this.hashCode());
+	}
+}
+	
+
+class Fu
+{
+	void show(){System.out.println("fu show");}
+}
+class Zi extends Fu
+{
+	void function()
+	{
+		super.show();
+		//this.show();
+	}
+	void show(){System.out.println("zi show");}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+class Computer
+{
+	private MainBoard mb;
+
+	Computer()
+	{
+		mb = new MainBoard();
+	}
+	public void play()
+	{
+		mb.run();
+	}
+}
+*/
+
+
+

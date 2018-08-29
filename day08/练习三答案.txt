@@ -1,0 +1,206 @@
+注：按Java规范书写程序代码，如果你认为程序有错误，请指出，并说明程序错误原因。
+
+1.
+class Demo
+{
+	void show(int a,int b,float c){}
+}
+
+
+A.void show(int a,float c,int b){}//yes
+
+B,void show(int a,int b,float c){}//一模一样。不可以出现在同一个类中。
+
+C.int show(int a,float c,int b){return a;}//yes。
+
+D.int show(int a,float c){return a;}//yes
+
+哪个答案和show函数重载。
+
+
+--------------------------------------------------
+2.写出结果。
+class Demo
+{
+	public static void main(String[] args)
+	{
+		int x=0,y=1;
+		if(++x==y--&x++==1||--y==0)
+			System.out.println("x="+x+",y="+y);
+		else
+			System.out.println("y="+y+",x="+x);
+	}
+}
+
+
+
+--------------------------------------------------
+3.
+写出输出结果。
+class Demo
+{
+	public static void main(String[] args)
+	{
+		int a=3,b=8;
+
+		int c=(a>b)?a++:b++;
+		System.out.println("a="+a+"\tb="+b+"\tc="+c);  //3 9 8
+
+		int d=(a>b)?++a:++b;
+		System.out.println("a="+a+"\tb="+b+"\td="+d);  //3 10 10
+
+		int e=(a<b)?a++:b++;
+		System.out.println("a="+a+"\tb="+b+"\te="+e);  //4 10 3
+
+		int f=(a<b)?++a:++b;
+		System.out.println("a="+a+"\tb="+b+"\tf="+f);  //5 10 5
+	}
+}
+
+--------------------------------------------------
+4.写出结果。
+class Demo
+{
+	public static void main(String[] args)
+	{
+		int m=0,n=3;
+		if(m>0)
+
+			if(n>2)
+				System.out.println("A");	
+		else
+			System.out.println("B");
+	}
+}
+没有结果。
+--------------------------------------------------
+5.写出结果。
+public class Demo
+{ 
+	public static void main(String []args)
+	{ 
+		int i = 0, j = 5; 
+		tp: for (;;)
+		{ 
+			i++; 
+			for(;;)
+			{
+				if(i > j--)
+					break tp; 
+			}
+		} 
+		System.out.println("i = " + i + ", j = "+ j); i=1,j=-1;
+	} 
+} 		
+
+
+
+--------------------------------------------------
+6.写出结果。
+class Demo      
+{
+	public static void main(String[] args)
+	{
+		String foo="blue"; 
+		boolean[] bar=new boolean[2]; 
+		if(bar[0])//boolean类型的数组默认初始化值是false。
+		{ 
+      			foo="green"; 
+   		} 
+		System.out.println(foo);
+	}
+}		
+
+
+
+--------------------------------------------------
+7.写出结果。
+public class Test      
+{ 
+	public static void leftshift(int i, int j)
+	{ 
+   		i+=j; 
+	} 
+	public static void main(String args[])
+	{ 
+		int i = 4, j = 2; 
+		leftshift(i, j); 
+		System.out.println(i); //4  和leftShift函数没关系。
+	} 
+} 
+
+
+--------------------------------------------------
+8.写出结果。
+public class Demo
+{ 
+	public static void main(String[] args)
+	{ 
+		int[] a=new int[1]; 
+		modify(a); 
+		System.out.println(a[0]); //1
+	}
+	public static void modify(int[] a)
+	{ 
+		a[0]++;
+	} 
+} 
+
+
+--------------------------------------------------
+9.
+class Test
+{ 
+	public static void main(String[] args)
+	{ 
+		String foo=args[1]; 
+		String bar=args[2]; 
+		String baz=args[3]; 
+	} 
+} 
+d:\>java Test Red Green Blue 
+
+what is the value of baz? 
+  A. baz has value of "" 
+  B. baz has value of null 
+  C. baz has value of "Red" 
+  D. baz has value of "Blue" 
+  E. baz has value of "Green" 
+  F. the code does not compile 
+  G. the program throw an exception 
+
+--------------------------------------------------
+
+11.
+简述：函数在程序中的作用以及运行特点。。
+
+
+
+
+--------------------------------------------------
+12.
+打印99乘法表
+
+
+--------------------------------------------------
+13.打印下列图形
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+ 
+
+------------------------------------------------------
+14.
+下面哪个数组定义是错误的。
+并对错误的答案加上单行注释，写出错误的原因。
+A，float[]=new float[3]; //没有数组引用名称。
+B, float f2[]=new float[];//数组没有长度。
+C, float[] f1=new float[3];//yes。
+D, boolean[] b={"true","false","true"};// 错误，数据类型不匹配。"true"这是字符串类型。
+E, double f4[]={1,3,5}; //yes  double d = 1; s.o.p(d);//1.0;
+F, int f5[]=new int[3]{2,3,4};  //错，右边中括号不能写具体数值，因为数据的元素和个数都在大括号体现了。
+G, float f4[]={1.2,3.0,5.4};//错误。因为数组中的元素值都是double，加上f就对了。
+
+

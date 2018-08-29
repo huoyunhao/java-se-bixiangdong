@@ -1,0 +1,121 @@
+
+1.
+已知学生成绩以100分为满分，共分5个等级：A,B,C,D,E。
+   90～100为等级A，80～89为等级B，70～79为等级C，
+   60～69为等级D，0～59为等级E。
+   要求定义一个成绩变量，当成绩变化时，可直接知道该成绩对应的等级。
+   例如：当成绩为100时，该学生的等级时A。
+
+class Demo
+{
+	//定义一功能，通过给定分数，获取该分数对应的等级。
+	/*
+	1，明确该功能的结果：等级 char
+	2，有没有未知内容。分数。int
+	*/
+	public static String getLevel(int num)
+	{
+		char level;
+		if(num>=90 && num<=100)
+			level = 'A';
+		else if(num>=80 && num<=89)
+			level = 'B';
+		else if(num>=70 && num<=79)
+			level = 'C';
+		else if(num>=60 && num<=69)
+			level = 'D';
+		else
+			level = 'E';
+
+		return level;
+	}
+	public static void main(String[] args)
+	{
+		
+		char ch = getLevel(35);
+		System.out.println("level="+ch);
+	}
+	
+}
+
+
+
+
+
+
+2.
+写出输出结果。
+class Demo
+{
+	public static void main(String[] args)
+	{
+		show(0);//15
+		show(1);//14
+	}	
+	public static void show(int i)
+	{
+		switch(i)
+		{	
+			default:
+				i+=2;
+			case 1:
+				i+=1;
+			case 4:
+				i+=8;			
+			case 2:
+				i+=4;
+		}
+		System.out.println("i="+i);
+	}	
+}
+
+3.写出输出的结果.
+class Demo
+{
+	public static void main(String[] args)
+	{
+		int x=0,y=1;
+		if(++x==y--&x++==1||--y==0)
+			System.out.println("x="+x+",y="+y);//x=2,y=0
+		else
+			System.out.println("y="+y+",x="+x);
+	}
+}
+
+
+4.
+求出1～100之间，即使3又是7的倍数出现的次数？
+
+
+
+5.
+用程序的方式显示出下列结果。
+
+1*1=1
+1*2=2   2*2=4
+1*3=3   2*3=6   3*3=9
+1*4=4   2*4=8   3*4=12  4*4=16
+1*5=5   2*5=10  3*5=15  4*5=20  5*5=25
+
+
+6.写出程序结果。
+
+class Demo
+{
+	public static void main(String[] args)
+	{
+		int x = 1;
+		for(show('a'); show('b') && x<3; show('c'))
+		{
+			show('d'); 
+			x++;
+		}
+	}
+	public static boolean show(char ch)
+	{
+		System.out.println(ch);
+		return true;
+	}
+}
+
+//a b d c b d c b
